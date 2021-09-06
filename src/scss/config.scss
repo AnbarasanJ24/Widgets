@@ -1,0 +1,21 @@
+// All variables, mixin and functions
+
+$font-stack: "Montserrat", sans-serif;
+
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+@mixin grid-rowColumn-layout($rows, $column) {
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+}
+
+@mixin grid-rowColumn-span($rowStart, $rowEnd, $columnStart, $columnEnd) {
+  grid-row-start: $rowStart;
+  grid-row-end: $rowEnd;
+  grid-column-start: $columnStart;
+  grid-column-end: $columnEnd;
+}
