@@ -1,6 +1,7 @@
 import React from "react";
 import Accordion from "./Accordion";
 import './App.scss';
+import Search from "./Search";
 
 const items = [
     {
@@ -18,10 +19,12 @@ const items = [
 ];
 
 const App = () => {
+    const isVisible = false;
     return (
         <div className="container">
             <div className="container__accordion">
-                <Accordion items={items} />
+                {isVisible ? <Accordion items={items} /> : null}
+                <Search />
             </div>
         </div>
     )

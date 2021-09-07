@@ -11,15 +11,14 @@ const Accordion = ({ items }) => {
     }
 
     const renderedItems = items.map((item, index) => {
+
         const active = index === activeIndex ? 'active' : '';
-        console.log("active", active)
         return (
             <div key={item.title} className="accordion-container__card">
                 <h1
                     onClick={() => onTitleClick(index)}
                     className="accordion-container__title"
                 >
-
                     <span className="mr-5"> &#11206;</span>
                     {item.title}
                 </h1>

@@ -1,0 +1,19 @@
+@import "../scss/config.scss";
+
+.search-container {
+  height: 70%;
+
+  input {
+    width: 45vw;
+    padding: 0.5rem;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid royalblue;
+    font-size: 0.8rem;
+    font-family: $font-stack;
+  }
+
+  &__list {
+    height: 100%;
+  }
+}
