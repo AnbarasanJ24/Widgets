@@ -30,10 +30,13 @@ const Search = () => {
 
     const renderedItems = data.map(item => {
         return (
-            <React.Fragment key={item.pageid}>
-                <h1>{item.title}</h1>
-                {item.snippet}
-            </React.Fragment>
+            <div className="search-container__card" key={item.pageid}>
+                <div className="search-container__content">
+                    <h3>{item.title}</h3>
+                    <span dangerouslySetInnerHTML={{ __html: item.snippet }}></span>
+                </div>
+                <a href={`https://en.wikipedia.org?curid=${item.pageid}`}>Go</a>
+            </div>
         )
     })
 

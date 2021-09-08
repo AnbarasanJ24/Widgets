@@ -1,7 +1,9 @@
 @import "../scss/config.scss";
 
 .search-container {
-  height: 70%;
+  height: 95%;
+  display: grid;
+  place-items: center;
 
   input {
     width: 45vw;
@@ -11,6 +13,32 @@
     border: 1px solid royalblue;
     font-size: 0.8rem;
     font-family: $font-stack;
+    margin-bottom: 1rem;
+  }
+
+  &__card {
+    padding: 0.6rem;
+    box-shadow: 0 13px 27px -5px #4169e112, 0 8px 16px -8px #4169e11c,
+      0 -8px 16px -6px #4169e124;
+    margin: 0.5rem 0;
+    border: 1px solid royalblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 0.6rem;
+    }
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: #555d88;
+      }
+    }
+  }
+
+  &__content {
   }
 
   &__list {
