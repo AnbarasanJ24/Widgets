@@ -5,10 +5,9 @@ import './Search.scss';
 const Search = () => {
 
     const [term, setTerm] = useState('Programming');
-    const [data, setData] = useState([]);
+    const [result, setResult] = useState([]);
 
     useEffect(() => {
-
         const search = async () => {
             const { data } = await wikiApi.get('', {
                 params: {
@@ -16,19 +15,37 @@ const Search = () => {
                 }
             })
             console.log(data.query.search)
-            setData(data.query.search);
+            setResult(data.query.search);
         }
-        if (term) {
+        if (term && result.length === 0) {
+            console.log("First result", term, result)
+
             search();
+        } else {
+            const timerId = setTimeout(() => {
+                if (term) {
+                    search();
+                }
+            }, 500);
+
+            return () => {
+                clearTimeout(timerId);
+                console.log("Clean up")
+            }
+
         }
 
-    }, [term])
+    }, [term, result.length])
+
+
+
+
 
     const onInputChange = (e) => {
         setTerm(e.target.value);
     }
 
-    const renderedItems = data.map(item => {
+    const renderedItems = result.map(item => {
         return (
             <div className="search-container__card" key={item.pageid}>
                 <div className="search-container__content">
