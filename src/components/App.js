@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./Accordion";
 import './App.scss';
+import Dropdown from "./Dropdown";
 import Search from "./Search";
 
 const items = [
@@ -18,13 +19,27 @@ const items = [
     },
 ];
 
+const options = [
+    { label: "A shade of Red", value: "red" },
+    { label: "A shade of Blue", value: "blue" },
+    { label: "A shade of Green", value: "green" }
+]
+
 const App = () => {
     const isVisible = false;
+    const [selected, setSelected] = useState(options[0]);
+
     return (
         <div className="container">
             <div className="container__accordion">
                 {isVisible ? <Accordion items={items} /> : null}
-                <Search />
+                {isVisible ? <Search /> : null}
+
+                <Dropdown
+                    options={options}
+                    selected={selected}
+                    onSelectedChange={setSelected}
+                />
             </div>
         </div>
     )

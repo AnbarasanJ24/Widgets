@@ -17,16 +17,14 @@ const Search = () => {
             console.log(data.query.search)
             setResult(data.query.search);
         }
-        if (term && result.length === 0) {
-            console.log("First result", term, result)
-
+        if (term) {
             search();
         } else {
             const timerId = setTimeout(() => {
                 if (term) {
                     search();
                 }
-            }, 500);
+            }, 5000);
 
             return () => {
                 clearTimeout(timerId);
@@ -35,7 +33,7 @@ const Search = () => {
 
         }
 
-    }, [term, result.length])
+    }, [term])
 
 
 
