@@ -1,10 +1,12 @@
 .dropdown {
   &__select {
     width: 50%;
-    font-size: 1.2rem;
     padding: 0.5rem;
-    border-radius: 20px;
+    border-radius: 30px;
     outline: none;
+    border: 1px solid royalblue;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
 
     &:focus-visible {
       outline: none;

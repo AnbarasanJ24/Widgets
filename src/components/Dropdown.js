@@ -7,9 +7,9 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   useEffect(() => {
     const onBodyClicked = (e) => {
       if (ref.current.contains(e.target)) {
-        console.log("Inside Dropdown");
+        // console.log("Inside Dropdown");
       } else {
-        console.log("outside Dropdown");
+        // console.log("outside Dropdown");
       }
     };
     document.body.addEventListener("click", onBodyClicked);
@@ -19,10 +19,13 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     };
   }, []);
 
+  const onDropdowmSelected = (e) => {
+    onSelectedChange({ value: e.target.value });
+  };
+
   const renderedItems = options.map((option) => {
     return (
       <option
-        onClick={() => onSelectedChange(option)}
         className="dropdown__option"
         key={option.value}
         value={option.value}
@@ -32,7 +35,11 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     );
   });
   return (
-    <select ref={ref} className="dropdown__select">
+    <select
+      ref={ref}
+      className="dropdown__select"
+      onChange={(e) => onDropdowmSelected(e)}
+    >
       {renderedItems}
     </select>
   );
