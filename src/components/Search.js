@@ -5,35 +5,32 @@ import './Search.scss';
 const Search = () => {
 
     const [term, setTerm] = useState('Programming');
+    const [debouncedTerm, setdebouncedTerm] = useState(term);
     const [result, setResult] = useState([]);
 
     useEffect(() => {
+        const timerId = setTimeout(() => {
+            setdebouncedTerm(term);
+        }, 500);
+
+        return () => {
+            clearTimeout(timerId);
+        }
+    }, [term])
+
+    useEffect(() => {
+
         const search = async () => {
             const { data } = await wikiApi.get('', {
                 params: {
-                    srsearch: term
+                    srsearch: debouncedTerm
                 }
             })
             console.log(data.query.search)
             setResult(data.query.search);
         }
-        if (term) {
-            search();
-        } else {
-            const timerId = setTimeout(() => {
-                if (term) {
-                    search();
-                }
-            }, 5000);
-
-            return () => {
-                clearTimeout(timerId);
-                console.log("Clean up")
-            }
-
-        }
-
-    }, [term])
+        search();
+    }, [debouncedTerm])
 
 
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Accordion from "./Accordion";
 import "./App.scss";
 import Dropdown from "./Dropdown";
+import Header from "./Header";
 import Search from "./Search";
 import Translate from "./Translate";
 
@@ -32,6 +33,9 @@ const App = () => {
 
   return (
     <div className="container">
+      <div className="container__header">
+        <Header />
+      </div>
       <div className="container__accordion">
         {isVisible ? <Accordion items={items} /> : null}
         {isVisible ? <Search /> : null}

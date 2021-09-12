@@ -11,13 +11,21 @@ body {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
-  @include grid-rowColumn-layout(1, 12);
+  @include grid-rowColumn-layout(2, 12);
   height: 100vh;
 
-  &__accordion {
-    @include grid-rowColumn-span(1, 1, 3, 11);
+  &__header {
+    @include grid-rowColumn-span(1, 2, 3, 11);
     @include grid-center();
-    // background-color: #777;
+  }
+
+  &__accordion {
+    @include grid-rowColumn-span(2, 3, 3, 11);
+    @include grid-center();
   }
 }

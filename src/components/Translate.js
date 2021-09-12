@@ -17,7 +17,7 @@ const Translate = () => {
       value: "sq",
     },
   ];
-  const [language, setLanguage] = useState("");
+  const [language, setLanguage] = useState({ value: 'ta' });
   const [text, setText] = useState("Hi");
 
   return (
