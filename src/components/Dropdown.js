@@ -6,7 +6,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   useEffect(() => {
     const onBodyClicked = (e) => {
-      if (ref.current.contains(e.target)) {
+      if (ref.current && ref.current.contains(e.target)) {
         // console.log("Inside Dropdown");
       } else {
         // console.log("outside Dropdown");

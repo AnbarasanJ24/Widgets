@@ -3,6 +3,7 @@ import Accordion from "./Accordion";
 import "./App.scss";
 import Dropdown from "./Dropdown";
 import Header from "./Header";
+import Route from "./Route";
 import Search from "./Search";
 import Translate from "./Translate";
 
@@ -28,7 +29,6 @@ const options = [
 ];
 
 const App = () => {
-  const isVisible = false;
   const [selected, setSelected] = useState(options[0]);
 
   return (
@@ -37,16 +37,14 @@ const App = () => {
         <Header />
       </div>
       <div className="container__accordion">
-        {isVisible ? <Accordion items={items} /> : null}
-        {isVisible ? <Search /> : null}
-        {isVisible ? (
-          <Dropdown
-            options={options}
-            selected={selected}
-            onSelectedChange={setSelected}
-          />
-        ) : null}
-        <Translate />
+        <Route path="/" ><Accordion items={items} /></Route>
+        <Route path="/search" ><Search /></Route>
+        <Route path="/dropdown" > <Dropdown
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        /></Route>
+        <Route path="/translate" ><Translate /></Route>
       </div>
     </div>
   );
