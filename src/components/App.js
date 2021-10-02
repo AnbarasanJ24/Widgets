@@ -6,6 +6,7 @@ import Header from "./Header";
 import Route from "./Route";
 import Search from "./Search";
 import Translate from "./Translate";
+import TranslateFlag from "./TranslateFlag";
 
 const items = [
   {
@@ -45,6 +46,7 @@ const App = () => {
           onSelectedChange={setSelected}
         /></Route>
         <Route path="/translate" ><Translate /></Route>
+        <Route path="/translateFlag" ><TranslateFlag /></Route>
       </div>
     </div>
   );

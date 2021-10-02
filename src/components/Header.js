@@ -10,6 +10,7 @@ const Header = () => {
                 <li><Link path="/search">Search Bar</Link></li>
                 <li><Link path="/dropdown">Drop Down</Link></li>
                 <li><Link path="/translate">Translate</Link></li>
+                <li><Link path="/translateFlag">Translate With Flag</Link></li>
             </ul>
         </div>
     )

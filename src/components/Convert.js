@@ -4,6 +4,7 @@ import { useState } from "react/cjs/react.development";
 import "./Convert.scss";
 
 const Convert = ({ language, text }) => {
+
   const [translate, setTranslate] = useState("");
   const [debouncedText, setdebouncedText] = useState(text);
 
@@ -36,12 +37,14 @@ const Convert = ({ language, text }) => {
     };
     doTranslation();
   }, [language, debouncedText]);
+
   return (
     <div className="convert">
       <h5>Output</h5>
       <p>{translate}</p>
     </div>
   );
+
 };
 
 export default Convert;
